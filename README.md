@@ -1,4 +1,4 @@
-# alicrafts.eu
+# ali-crafts.eu
 
 Static site for Alexandra's handmade Christmas cards. No build step: GitHub Pages serves the files as they are.
 
@@ -15,9 +15,9 @@ Static site for Alexandra's handmade Christmas cards. No build step: GitHub Page
 2. In the repository: Settings → Pages → Source: "Deploy from a branch", branch `main`, folder `/ (root)`.
 3. The site appears at `https://<user>.github.io/<repo>/` after a minute or two.
 
-## Custom domain (alicrafts.eu)
+## Custom domain (ali-crafts.eu)
 
-1. Settings → Pages → Custom domain: enter `alicrafts.eu` and save. GitHub adds a `CNAME` file to the repo.
+1. Settings → Pages → Custom domain: enter `ali-crafts.eu` and save. GitHub adds a `CNAME` file to the repo.
 2. At the domain registrar, add the DNS records GitHub lists on that page (A records for the bare domain, a CNAME for `www`).
 3. Once the domain check passes, tick "Enforce HTTPS".
 
