@@ -17,6 +17,7 @@ PRICES = {                             # card number: price in euros
     4: 5, 11: 5, 13: 5, 24: 5, 25: 5, 49: 5, 51: 5,  # cards with a wide ribbon
 }
 SOLD = set()                           # card numbers to leave out, e.g. {3, 17}
+HIDDEN = {70}                          # cards not ready to show yet (photo stays in images/)
 FIRST = [70, 1, 2, 8, 67]              # cards shown at the top of the gallery, in this order
 THUMB_WIDTH = 720                      # pixels; about twice the size a card is shown at in the grid
 THUMB_QUALITY = 90                     # 0-100
@@ -30,7 +31,7 @@ end += len('</figure>')
 template = html[start:html.find('</figure>', start) + len('</figure>')]
 
 numbers = sorted(int(re.search(r'card-(\d+)\.jpg$', p).group(1)) for p in glob.glob('images/card-*.jpg'))
-numbers = [n for n in numbers if n not in SOLD]
+numbers = [n for n in numbers if n not in SOLD and n not in HIDDEN]
 numbers = [n for n in FIRST if n in numbers] + [n for n in numbers if n not in FIRST]
 if not numbers:
     sys.exit('No images/card-NN.jpg files found - nothing changed.')
