@@ -6,6 +6,7 @@ Static site for Alexandra's handmade Christmas cards. No build step: GitHub Page
 
 - `index.html` – the whole page: layout, styles, and all text in Bulgarian and English.
 - `images/card-01.jpg` … `card-08.jpg` – gallery photos (1000×1400).
+- `images/thumbs/card-NN.webp` – small copies of the gallery photos for the grid, made by `python3 add_cards.py` (needs Pillow: `python3 -m pip install --user pillow`). The full photo opens when a card is clicked.
 - `images/hero-02.jpg`, `hero-05.jpg`, `hero-07.jpg` – the three cards at the top of the page.
 - `.nojekyll` – tells GitHub Pages to serve the files untouched.
 

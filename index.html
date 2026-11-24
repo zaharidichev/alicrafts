@@ -28,6 +28,40 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 [aria-label="Language"]{padding:3px;gap:2px;overflow:visible !important}
 .lang{border-radius:999px;min-height:36px !important;padding:0 14px !important}
+/* Gallery thumbnails */
+#kartichki figure img{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+#kartichki figure img:hover,#kartichki figure img:focus-visible{transform:translateY(-3px);box-shadow:0 10px 22px rgba(31,59,47,0.2) !important}
+#kartichki figure img:focus-visible{outline:2px solid #1F3B2F;outline-offset:2px}
+/* "Order on Viber" button in the card viewer */
+.order{box-sizing:border-box;flex:1 0 100%;text-align:center;padding:9px 16px;border:1px solid var(--accent);border-radius:999px;color:var(--accent);font-size:14px;font-weight:700;text-decoration:none}
+.order:hover{background:var(--accent);color:#FFFFFF}
+#viewer .cap{flex-wrap:wrap;justify-content:center}
+#viewer .note{flex:none;margin:-4px 0 0;font-size:14px;opacity:.8;text-align:center}
+#viewer .order{flex:none;border-color:#F3EADB;color:#F3EADB}
+#viewer .order:hover{background:#F3EADB;color:#1F3B2F}
+/* Card viewer (opens when a thumbnail is clicked) */
+html:has(#viewer[open]){overflow:hidden}
+#viewer{border:0;padding:0;margin:0;background:transparent;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;overflow:hidden;color:#F3EADB;font-family:'Manrope',sans-serif}
+#viewer::backdrop{background:rgba(18,30,24,0.9)}
+#viewer .stage{box-sizing:border-box;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:56px 64px 20px}
+#viewer img{display:block;box-sizing:border-box;min-height:0;max-width:100%;max-height:100%;flex:0 1 auto;aspect-ratio:5/7;object-fit:contain;padding:12px;background:#DBCDB3;border:1px solid #C3B08E;border-radius:3px;box-shadow:0 16px 48px rgba(0,0,0,0.45)}
+#viewer .cap{display:flex;align-items:baseline;gap:16px;flex:none}
+#viewer .cap b{font-family:'Yeseva One',serif;font-weight:400;font-size:20px;text-transform:uppercase;letter-spacing:0.08em}
+#viewer .cap span{font-weight:700;color:#F0B9A8}
+#viewer .cap small{opacity:.7;font-size:13px}
+#viewer button{position:absolute;width:44px;height:44px;border:0;border-radius:50%;background:rgba(243,234,219,0.14);color:#F3EADB;font:400 26px/1 'Manrope',sans-serif;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+#viewer button:hover{background:rgba(243,234,219,0.3)}
+#viewer button:focus-visible{outline:2px solid #F3EADB;outline-offset:2px}
+#viewer .x{top:10px;right:10px}
+#viewer .prev{left:10px;top:50%;transform:translateY(-50%)}
+#viewer .next{right:10px;top:50%;transform:translateY(-50%)}
+@media (max-width:640px){
+  #viewer .stage{padding:60px 12px 76px}
+  #viewer .prev,#viewer .next{top:auto;bottom:16px;transform:none}
+  #viewer .prev{left:calc(50% - 110px)}
+  #viewer .next{right:calc(50% - 110px)}
+}
+@media (prefers-reduced-motion:reduce){#kartichki figure img{transition:none}}
 </style>
 </head>
 <body>
@@ -73,7 +107,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 44px 32px">
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-70.jpg" alt="Картичка № 70" data-card="70" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-70.webp" alt="Картичка № 70" data-card="70" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 70</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -81,7 +115,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-01.jpg" alt="Картичка № 1" data-card="1" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-01.webp" alt="Картичка № 1" data-card="1" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 1</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -89,7 +123,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-02.jpg" alt="Картичка № 2" data-card="2" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-02.webp" alt="Картичка № 2" data-card="2" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 2</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -97,7 +131,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-08.jpg" alt="Картичка № 8" data-card="8" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-08.webp" alt="Картичка № 8" data-card="8" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 8</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -105,7 +139,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-67.jpg" alt="Картичка № 67" data-card="67" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-67.webp" alt="Картичка № 67" data-card="67" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 67</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -113,7 +147,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-03.jpg" alt="Картичка № 3" data-card="3" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-03.webp" alt="Картичка № 3" data-card="3" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 3</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -121,7 +155,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-04.jpg" alt="Картичка № 4" data-card="4" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-04.webp" alt="Картичка № 4" data-card="4" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 4</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -129,7 +163,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-05.jpg" alt="Картичка № 5" data-card="5" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-05.webp" alt="Картичка № 5" data-card="5" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 5</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -137,7 +171,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-06.jpg" alt="Картичка № 6" data-card="6" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-06.webp" alt="Картичка № 6" data-card="6" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 6</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -145,7 +179,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-07.jpg" alt="Картичка № 7" data-card="7" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-07.webp" alt="Картичка № 7" data-card="7" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 7</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -153,7 +187,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-09.jpg" alt="Картичка № 9" data-card="9" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-09.webp" alt="Картичка № 9" data-card="9" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 9</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -161,7 +195,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-10.jpg" alt="Картичка № 10" data-card="10" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-10.webp" alt="Картичка № 10" data-card="10" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 10</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -169,7 +203,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-11.jpg" alt="Картичка № 11" data-card="11" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-11.webp" alt="Картичка № 11" data-card="11" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 11</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -177,7 +211,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-12.jpg" alt="Картичка № 12" data-card="12" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-12.webp" alt="Картичка № 12" data-card="12" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 12</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -185,7 +219,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-13.jpg" alt="Картичка № 13" data-card="13" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-13.webp" alt="Картичка № 13" data-card="13" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 13</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -193,7 +227,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-14.jpg" alt="Картичка № 14" data-card="14" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-14.webp" alt="Картичка № 14" data-card="14" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 14</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -201,7 +235,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-15.jpg" alt="Картичка № 15" data-card="15" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-15.webp" alt="Картичка № 15" data-card="15" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 15</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -209,7 +243,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-16.jpg" alt="Картичка № 16" data-card="16" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-16.webp" alt="Картичка № 16" data-card="16" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 16</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -217,7 +251,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-17.jpg" alt="Картичка № 17" data-card="17" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-17.webp" alt="Картичка № 17" data-card="17" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 17</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -225,7 +259,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-18.jpg" alt="Картичка № 18" data-card="18" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-18.webp" alt="Картичка № 18" data-card="18" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 18</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -233,7 +267,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-19.jpg" alt="Картичка № 19" data-card="19" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-19.webp" alt="Картичка № 19" data-card="19" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 19</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -241,7 +275,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-20.jpg" alt="Картичка № 20" data-card="20" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-20.webp" alt="Картичка № 20" data-card="20" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 20</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -249,7 +283,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-21.jpg" alt="Картичка № 21" data-card="21" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-21.webp" alt="Картичка № 21" data-card="21" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 21</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -257,7 +291,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-22.jpg" alt="Картичка № 22" data-card="22" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-22.webp" alt="Картичка № 22" data-card="22" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 22</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -265,7 +299,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-23.jpg" alt="Картичка № 23" data-card="23" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-23.webp" alt="Картичка № 23" data-card="23" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 23</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -273,7 +307,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-24.jpg" alt="Картичка № 24" data-card="24" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-24.webp" alt="Картичка № 24" data-card="24" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 24</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -281,7 +315,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-25.jpg" alt="Картичка № 25" data-card="25" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-25.webp" alt="Картичка № 25" data-card="25" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 25</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -289,7 +323,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-26.jpg" alt="Картичка № 26" data-card="26" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-26.webp" alt="Картичка № 26" data-card="26" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 26</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -297,7 +331,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-27.jpg" alt="Картичка № 27" data-card="27" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-27.webp" alt="Картичка № 27" data-card="27" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 27</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -305,7 +339,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-28.jpg" alt="Картичка № 28" data-card="28" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-28.webp" alt="Картичка № 28" data-card="28" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 28</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -313,7 +347,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-29.jpg" alt="Картичка № 29" data-card="29" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-29.webp" alt="Картичка № 29" data-card="29" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 29</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -321,7 +355,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-30.jpg" alt="Картичка № 30" data-card="30" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-30.webp" alt="Картичка № 30" data-card="30" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 30</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -329,7 +363,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-31.jpg" alt="Картичка № 31" data-card="31" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-31.webp" alt="Картичка № 31" data-card="31" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 31</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -337,7 +371,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-32.jpg" alt="Картичка № 32" data-card="32" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-32.webp" alt="Картичка № 32" data-card="32" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 32</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -345,7 +379,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-33.jpg" alt="Картичка № 33" data-card="33" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-33.webp" alt="Картичка № 33" data-card="33" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 33</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -353,7 +387,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-34.jpg" alt="Картичка № 34" data-card="34" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-34.webp" alt="Картичка № 34" data-card="34" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 34</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -361,7 +395,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-35.jpg" alt="Картичка № 35" data-card="35" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-35.webp" alt="Картичка № 35" data-card="35" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 35</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -369,7 +403,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-36.jpg" alt="Картичка № 36" data-card="36" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-36.webp" alt="Картичка № 36" data-card="36" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 36</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -377,7 +411,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-37.jpg" alt="Картичка № 37" data-card="37" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-37.webp" alt="Картичка № 37" data-card="37" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 37</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -385,7 +419,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-38.jpg" alt="Картичка № 38" data-card="38" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-38.webp" alt="Картичка № 38" data-card="38" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 38</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -393,7 +427,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-39.jpg" alt="Картичка № 39" data-card="39" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-39.webp" alt="Картичка № 39" data-card="39" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 39</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -401,7 +435,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-40.jpg" alt="Картичка № 40" data-card="40" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-40.webp" alt="Картичка № 40" data-card="40" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 40</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -409,7 +443,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-41.jpg" alt="Картичка № 41" data-card="41" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-41.webp" alt="Картичка № 41" data-card="41" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 41</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -417,7 +451,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-42.jpg" alt="Картичка № 42" data-card="42" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-42.webp" alt="Картичка № 42" data-card="42" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 42</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -425,7 +459,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-43.jpg" alt="Картичка № 43" data-card="43" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-43.webp" alt="Картичка № 43" data-card="43" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 43</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -433,7 +467,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-44.jpg" alt="Картичка № 44" data-card="44" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-44.webp" alt="Картичка № 44" data-card="44" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 44</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -441,7 +475,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-45.jpg" alt="Картичка № 45" data-card="45" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-45.webp" alt="Картичка № 45" data-card="45" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 45</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -449,7 +483,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-46.jpg" alt="Картичка № 46" data-card="46" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-46.webp" alt="Картичка № 46" data-card="46" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 46</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -457,7 +491,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-47.jpg" alt="Картичка № 47" data-card="47" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-47.webp" alt="Картичка № 47" data-card="47" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 47</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -465,7 +499,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-48.jpg" alt="Картичка № 48" data-card="48" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-48.webp" alt="Картичка № 48" data-card="48" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 48</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -473,7 +507,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-49.jpg" alt="Картичка № 49" data-card="49" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-49.webp" alt="Картичка № 49" data-card="49" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 49</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -481,7 +515,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-50.jpg" alt="Картичка № 50" data-card="50" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-50.webp" alt="Картичка № 50" data-card="50" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 50</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -489,7 +523,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-51.jpg" alt="Картичка № 51" data-card="51" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-51.webp" alt="Картичка № 51" data-card="51" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 51</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">5 €</span>
@@ -497,7 +531,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-52.jpg" alt="Картичка № 52" data-card="52" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-52.webp" alt="Картичка № 52" data-card="52" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 52</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -505,7 +539,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-53.jpg" alt="Картичка № 53" data-card="53" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-53.webp" alt="Картичка № 53" data-card="53" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 53</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -513,7 +547,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-54.jpg" alt="Картичка № 54" data-card="54" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-54.webp" alt="Картичка № 54" data-card="54" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 54</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -521,7 +555,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-55.jpg" alt="Картичка № 55" data-card="55" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-55.webp" alt="Картичка № 55" data-card="55" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 55</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -529,7 +563,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-56.jpg" alt="Картичка № 56" data-card="56" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-56.webp" alt="Картичка № 56" data-card="56" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 56</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -537,7 +571,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-57.jpg" alt="Картичка № 57" data-card="57" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-57.webp" alt="Картичка № 57" data-card="57" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 57</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -545,7 +579,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-58.jpg" alt="Картичка № 58" data-card="58" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-58.webp" alt="Картичка № 58" data-card="58" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 58</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -553,7 +587,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-59.jpg" alt="Картичка № 59" data-card="59" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-59.webp" alt="Картичка № 59" data-card="59" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 59</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -561,7 +595,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-60.jpg" alt="Картичка № 60" data-card="60" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-60.webp" alt="Картичка № 60" data-card="60" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 60</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -569,7 +603,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-61.jpg" alt="Картичка № 61" data-card="61" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-61.webp" alt="Картичка № 61" data-card="61" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 61</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -577,7 +611,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-62.jpg" alt="Картичка № 62" data-card="62" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-62.webp" alt="Картичка № 62" data-card="62" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 62</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -585,7 +619,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-63.jpg" alt="Картичка № 63" data-card="63" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-63.webp" alt="Картичка № 63" data-card="63" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 63</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -593,7 +627,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-64.jpg" alt="Картичка № 64" data-card="64" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-64.webp" alt="Картичка № 64" data-card="64" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 64</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -601,7 +635,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-65.jpg" alt="Картичка № 65" data-card="65" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-65.webp" alt="Картичка № 65" data-card="65" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 65</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -609,7 +643,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-66.jpg" alt="Картичка № 66" data-card="66" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-66.webp" alt="Картичка № 66" data-card="66" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 66</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -617,7 +651,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-68.jpg" alt="Картичка № 68" data-card="68" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-68.webp" alt="Картичка № 68" data-card="68" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 68</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -625,7 +659,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </figure>
 
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
-<img src="images/card-69.jpg" alt="Картичка № 69" data-card="69" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
+<img src="images/thumbs/card-69.webp" alt="Картичка № 69" data-card="69" loading="lazy" style="display: block; width: 100%; box-sizing: border-box; aspect-ratio: 5/7; object-fit: cover; padding: 14px; background: #DBCDB3; border: 1px solid #C3B08E; border-radius: 3px; box-shadow: 0 10px 24px rgba(31,59,47,0.12)">
 <figcaption style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
 <span style="font-family: 'Yeseva One', serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em"><span data-i18n="card">Картичка</span> № 69</span>
 <span style="color: var(--accent); font-weight: 700; white-space: nowrap">4 €</span>
@@ -674,7 +708,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 <section id="poruchka" style="padding: 88px max(5%, calc(50% - 580px)); display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between">
 <div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 16px">
 <h2 style="margin: 0; font-family: 'Yeseva One', serif; font-weight: 400; font-size: clamp(32px, 4vw, 52px)"><span data-i18n="orderT">Поръчай</span></h2>
-<p style="margin: 0; max-width: 520px"><span data-i18n="orderP">Обади се или пиши във Viber на тати и кажи номера на картичката. Доставяме на ръка в Residential Park Sofia, Garitage Park и Residential Park Lozen.</span></p>
+<p style="margin: 0; max-width: 520px"><span data-i18n="orderP">Обади се или пиши във Viber на тати и кажи номера на картичката. Доставяме на ръка в Residential Park Sofia, Garitage Park и Residential Park Lozen. Можеш и да я вземеш лично от нас.</span></p>
 <p style="margin: 0; max-width: 520px; font-weight: 700; color: var(--accent)"><span data-i18n="pay">Плащане само в брой, при доставка.</span></p>
 </div>
 <div style="flex: 0 1 420px; background: #FFFDF8; border-radius: 10px; padding: 32px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; box-shadow: 0 18px 40px rgba(31,59,47,0.12)">
@@ -692,6 +726,16 @@ a:focus-visible,button:focus-visible{outline:2px solid #1F3B2F;outline-offset:2p
 </footer>
 
 </div>
+<dialog id="viewer">
+<div class="stage">
+<img alt="">
+<div class="cap"><b></b><span></span><small></small><a class="order"></a></div>
+<p class="note"></p>
+</div>
+<button type="button" class="x">×</button>
+<button type="button" class="prev">‹</button>
+<button type="button" class="next">›</button>
+</dialog>
 <script>
 // All site text lives here, in Bulgarian and English. Edit the wording in this block.
 const TEXTS = {
@@ -720,7 +764,7 @@ const TEXTS = {
   "about1": "На 7 години съм и обичам да плувам, да рисувам, да пея и да правя картички. Тази Коледа ги продавам сама, за да науча как се печелят пари с нещо, което обичаш да правиш.",
   "mom": "Правя ги заедно с мама, вкъщи на масата. Аз оцветявам и украсявам, а мама ми помага с рисуването и лепенето. Затова няма две еднакви.",
   "orderT": "Поръчай",
-  "orderP": "Обади се или пиши във Viber на тати и кажи номера на картичката. Доставяме на ръка в Residential Park Sofia, Garitage Park и Residential Park Lozen.",
+  "orderP": "Обади се или пиши във Viber на тати и кажи номера на картичката. Доставяме на ръка в Residential Park Sofia, Garitage Park и Residential Park Lozen. Можеш и да я вземеш лично от нас.",
   "pay": "Плащане само в брой, при доставка.",
   "viber": "Пиши във Viber",
   "call": "Обади се",
@@ -761,7 +805,7 @@ const TEXTS = {
   "about1": "I am 7 years old and I love swimming, drawing, singing and making cards. This Christmas I am selling them myself, to learn how you earn money by doing something you enjoy.",
   "mom": "I make them together with my mom, at the table at home. I do the colouring and decorating, and mom helps me with the drawing and gluing. That is why no two are the same.",
   "orderT": "Order",
-  "orderP": "Call or message dad on Viber and tell him the card number. We deliver by hand in Residential Park Sofia, Garitage Park and Residential Park Lozen.",
+  "orderP": "Call or message dad on Viber and tell him the card number. We deliver by hand in Residential Park Sofia, Garitage Park and Residential Park Lozen. You can also pick it up from us.",
   "pay": "Cash only, on delivery.",
   "viber": "Message on Viber",
   "call": "Call",
@@ -792,6 +836,81 @@ document.querySelectorAll('.lang').forEach(b => b.addEventListener('click', () =
 let saved = 'bg';
 try { saved = localStorage.getItem('alicrafts-lang') || 'bg'; } catch (e) {}
 if (saved !== 'bg') setLang(saved);
+
+// Card viewer: click a thumbnail to see the card large; arrows, swipe or the buttons move between cards.
+(function () {
+  const viewer = document.getElementById('viewer');
+  if (!viewer || !viewer.showModal) return;
+  const thumbs = Array.from(document.querySelectorAll('#kartichki figure img'));
+  const big = viewer.querySelector('img');
+  const [name, price, count] = viewer.querySelector('.cap').children;
+  // Viber button in the viewer: opens the chat with dad with a ready message naming the card.
+  // The phone number is taken from the main "Message on Viber" button further up the page.
+  const chat = (document.querySelector('a[href^="viber://chat"]') || {}).href || '';
+  const ORDER = {
+    bg: { label: 'Поръчай във Viber', note: 'Доставяме лично или можеш да я вземеш от нас.', text: n => 'Здравейте! Искам да поръчам картичка № ' + n + '.' },
+    en: { label: 'Order on Viber', note: 'We deliver in person, or you can pick it up from us.', text: n => 'Hello! I would like to order card № ' + n + '.' }
+  };
+  function orderLink(a, n) {
+    const o = ORDER[document.documentElement.lang] || ORDER.bg;
+    a.textContent = o.label;
+    viewer.querySelector('.note').textContent = o.note;
+    a.href = chat + '&draft=' + encodeURIComponent(o.text(n));
+  }
+  const viewerOrder = viewer.querySelector('.order');
+  viewerOrder.hidden = !chat;
+  const LABELS = { bg: ['Затвори', 'Предишна', 'Следваща'], en: ['Close', 'Previous', 'Next'] };
+  let at = 0;
+  // the grid shows small copies from images/thumbs/; the viewer shows the full photo
+  const full = thumb => thumb.getAttribute('src').replace(/thumbs\/(card-\d+)\.webp$/, '$1.jpg');
+  function show(i) {
+    at = (i + thumbs.length) % thumbs.length;
+    const thumb = thumbs[at], cap = thumb.closest('figure').querySelector('figcaption');
+    const here = at, photo = new Image();
+    big.src = thumb.src;                       // instant, then swap in the full photo once it has loaded
+    photo.onload = () => { if (at === here) big.src = photo.src; };
+    photo.src = full(thumb);
+    big.alt = thumb.alt;
+    name.textContent = cap.children[0].textContent;
+    price.textContent = cap.children[1].textContent;
+    count.textContent = (at + 1) + ' / ' + thumbs.length;
+    if (chat) orderLink(viewerOrder, thumb.dataset.card);
+    [-1, 1].forEach(d => { new Image().src = full(thumbs[(at + d + thumbs.length) % thumbs.length]); });
+  }
+  function open(i) {
+    const l = LABELS[document.documentElement.lang] || LABELS.bg;
+    ['.x', '.prev', '.next'].forEach((s, k) => viewer.querySelector(s).setAttribute('aria-label', l[k]));
+    show(i);
+    viewer.showModal();
+  }
+  thumbs.forEach((thumb, i) => {
+    thumb.tabIndex = 0;
+    thumb.setAttribute('role', 'button');
+    thumb.addEventListener('click', () => open(i));
+    thumb.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+    });
+  });
+  viewer.querySelector('.x').addEventListener('click', () => viewer.close());
+  viewer.querySelector('.prev').addEventListener('click', () => show(at - 1));
+  viewer.querySelector('.next').addEventListener('click', () => show(at + 1));
+  viewer.addEventListener('click', e => {
+    if (e.target === viewer || e.target.classList.contains('stage')) viewer.close();
+  });
+  viewer.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') show(at - 1);
+    if (e.key === 'ArrowRight') show(at + 1);
+  });
+  viewer.addEventListener('close', () => { thumbs[at].focus({ preventScroll: true }); thumbs[at].scrollIntoView({ block: 'nearest' }); });
+  let x0 = null;
+  viewer.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1));
+  });
+})();
 </script>
 </body>
 </html>
