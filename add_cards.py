@@ -11,10 +11,15 @@ That needs Pillow:   python3 -m pip install --user pillow
 """
 import glob, os, re, sys
 
-DEFAULT_PRICE = 4                      # euros, for any card not listed below
+DEFAULT_PRICE = 3                      # euros, for any card not listed below
 PRICES = {                             # card number: price in euros
-    1: 5, 2: 5, 8: 5, 20: 5, 21: 5, 70: 5,           # cards with a star
-    4: 5, 11: 5, 13: 5, 24: 5, 25: 5, 49: 5, 51: 5,  # cards with a wide ribbon
+    1: 5, 2: 5, 8: 5, 67: 5, 70: 5,                  # big round ornament in the centre
+    20: 4, 21: 4,                                    # cards with a star
+    4: 4, 11: 4, 13: 4, 24: 4, 25: 4, 49: 4, 51: 4,  # cards with a wide ribbon
+    5: 4, 19: 4, 34: 4, 36: 4, 37: 4, 38: 4, 39: 4,  # big hanging baubles
+    41: 4, 43: 4, 45: 4, 53: 4, 57: 4,
+    47: 4, 52: 4,                                    # snowmen
+    32: 4, 50: 4, 65: 4, 66: 4,                      # fully painted: gifts, tree, angels
 }
 SOLD = set()                           # card numbers to leave out, e.g. {3, 17}
 HIDDEN = {70}                          # cards not ready to show yet (photo stays in images/)
